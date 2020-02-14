@@ -71,8 +71,7 @@
         >
       </b-card>
 
-      <!--DARK MODE k
-      -->
+      <!--DARK MODE k-->
       <b-card
         v-show="isDark"
         bg-variant="dark"
