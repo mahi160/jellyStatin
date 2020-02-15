@@ -145,12 +145,18 @@
         >
       </b-card>
     </b-container>
+
+    <quote-section></quote-section>
   </div>
 </template>
 
 <script>
+import QuoteSection from '@/components/QuoteSection.vue';
 export default {
   name: "input-section",
+  components: {
+    QuoteSection
+  },
   props: {
     serverIP: String,
     serverPort: String,
