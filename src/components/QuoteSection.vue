@@ -3,7 +3,7 @@
     <b-container>
       <blockquote class="mx-auto">
         <p>
-          <i>{{ quote[0].name}}</i>
+          <i>{{ quote[0].name }}</i>
         </p>
       </blockquote>
       <i class="quote">{{ quote[0].auth }}</i>
@@ -16,7 +16,7 @@ export default {
   name: "quote-section",
   data() {
     return {
-      quote: [],
+      quote: []
     };
   },
   created() {
@@ -30,10 +30,9 @@ export default {
           name: data.contents.quotes[0].quote,
           auth: data.contents.quotes[0].author
         });
-        console.log(this.quote.json());
       });
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

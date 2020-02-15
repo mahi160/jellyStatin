@@ -14,7 +14,7 @@
             <b-col md="8">
               <div role="group">
                 <b-form-input
-                  id="input-live"
+                  id="input-live-ip"
                   v-model="serverIP"
                   :state="serverIPState"
                   @keyup="$emit('update:serverIP', serverIP)"
@@ -32,7 +32,7 @@
             <b-col md="4">
               <div role="group">
                 <b-form-input
-                  id="input-live"
+                  id="input-live-port"
                   type="number"
                   v-model="serverPort"
                   :state="serverPortState"
@@ -49,7 +49,7 @@
             <b-col>
               <div role="group">
                 <b-form-input
-                  id="input-live"
+                  id="input-live-api"
                   v-model="serverAPI"
                   :state="serverAPIState"
                   @keyup="$emit('update:serverApi', serverApi)"
@@ -85,7 +85,7 @@
               <div role="group">
                 <b-form-input
                   class="form-input"
-                  id="input-live"
+                  id="input-live-ipd"
                   v-model="serverIP"
                   :state="serverIPState"
                   @keyup="$emit('update:serverIP', serverIP)"
@@ -104,7 +104,7 @@
               <div role="group">
                 <b-form-input
                   class="form-input"
-                  id="input-live"
+                  id="input-live-portd"
                   type="number"
                   v-model="serverPort"
                   :state="serverPortState"
@@ -121,7 +121,7 @@
             <b-col>
               <div role="group">
                 <b-form-input
-                  class="form-input"
+                  class="form-input-apid"
                   id="input-live"
                   v-model="serverAPI"
                   :state="serverAPIState"
@@ -146,15 +146,18 @@
       </b-card>
     </b-container>
 
+    <error-section :errFetch="errFetch"></error-section>
     <quote-section></quote-section>
   </div>
 </template>
 
 <script>
-import QuoteSection from '@/components/QuoteSection.vue';
+import ErrorSection from "@/components/ErrorSection.vue";
+import QuoteSection from "@/components/QuoteSection.vue";
 export default {
   name: "input-section",
   components: {
+    ErrorSection,
     QuoteSection
   },
   props: {
@@ -162,6 +165,7 @@ export default {
     serverPort: String,
     serverAPI: String,
     show: Boolean,
+    errFetch: Boolean,
     isDark: Boolean
   },
   computed: {

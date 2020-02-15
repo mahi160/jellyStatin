@@ -6,6 +6,7 @@
       :serverAPI.sync="serverAPI"
       :isDark="isDark"
       :show="show"
+      :errFetch="errFetch"
     ></input-section>
   </div>
 </template>
@@ -25,7 +26,8 @@ export default {
       serverPort: "",
       serverAPI: "",
       isDark: false,
-      show: true
+      show: true,
+      errFetch: false
     };
   }
 };

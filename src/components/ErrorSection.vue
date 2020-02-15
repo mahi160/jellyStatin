@@ -1,0 +1,27 @@
+<template>
+  <div class="basic-data-section">
+    <b-container v-show="errFetch">
+      <!--WARNING SECTION-->
+      <b-alert variant="danger" class="mx-auto" show dismissible>
+        Cannot Fetch API data from Jellyfin Server! Make sure all inputs are
+        correctly filled.
+      </b-alert>
+    </b-container>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "error-section",
+  props: {
+    errFetch: Boolean
+  }
+};
+</script>
+
+<style>
+.alert {
+  max-width: 30rem;
+  margin-top: 30px;
+}
+</style>
