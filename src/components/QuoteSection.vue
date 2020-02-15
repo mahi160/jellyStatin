@@ -15,7 +15,7 @@
 export default {
   name: "quote-section",
   props: {
-    show:Boolean
+    show: Boolean
   },
   data() {
     return {

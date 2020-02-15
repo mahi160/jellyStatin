@@ -20,18 +20,22 @@
       @all-stat="allStats()"
       @submit="submit()"
     ></basic-section>
+
+    <main-section name="Counts" :show="show" :movies="counts"></main-section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import InputSection from "@/components/InputSection.vue";
-import BasicSection from '@/components/BasicSection.vue'
+import BasicSection from "@/components/BasicSection.vue";
+import MainSection from "@/components/MainSection.vue";
 export default {
   name: "Home",
   components: {
     InputSection,
-    BasicSection
+    BasicSection,
+    MainSection
   },
   data() {
     return {
@@ -46,6 +50,7 @@ export default {
 
       systemStats: [],
       users: [],
+      counts: [],
       movies: [],
       tvShows: [],
       musics: [],
@@ -171,6 +176,7 @@ export default {
           return res.json();
         })
         .then(data => {
+          /*
           let tempMo = [];
           tempMo.push({
             Movies: data.MovieCount,
@@ -200,6 +206,21 @@ export default {
             Trailers: data.TrailerCount
           });
           this.others = tempOt;
+        */
+
+          let tempC = [];
+          tempC.push({
+            Movies: data.MovieCount,
+            BoxSets: data.BoxSetCount,
+            Series: data.SeriesCount,
+            Episodes: data.EpisodeCount,
+            Songs: data.SongCount,
+            albums: data.AlbumCount,
+            artists: data.ArtistCount,
+            musicVideos: data.MusicVideoCount,
+            Books: data.BookCount
+          });
+          this.counts = tempC;
         });
     }
   },
@@ -208,5 +229,5 @@ export default {
       return this.serverIP;
     }
   }
-}
+};
 </script>

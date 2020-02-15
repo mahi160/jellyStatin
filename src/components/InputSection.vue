@@ -3,11 +3,7 @@
     <!--INPUT CARD SECTION-->
     <b-container v-show="show">
       <!--LIGHT MODE-->
-      <b-card
-        bg-variant="light"
-        header="JellyStat"
-        class="text-center mx-auto"
-      >
+      <b-card bg-variant="light" header="JellyStat" class="text-center mx-auto">
         <b-card-text>
           <b-row>
             <b-col md="8">
@@ -90,7 +86,7 @@ export default {
     serverPort: String,
     serverAPI: String,
     show: Boolean,
-    errFetch: Boolean,
+    errFetch: Boolean
   },
   computed: {
     serverIPState() {

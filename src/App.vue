@@ -42,6 +42,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   min-height: 100vh;
+  padding-bottom: 30px;
 }
 
 #nav-logo {
