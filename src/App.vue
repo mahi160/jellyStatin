@@ -180,7 +180,7 @@ export default {
     }
   }
   .card {
-    background: #2c3e50 !important;
+    background: #393939 !important;
   }
 }
 </style>
