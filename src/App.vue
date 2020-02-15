@@ -179,5 +179,8 @@ export default {
       }
     }
   }
+  .card {
+    background: #2c3e50 !important;
+  }
 }
 </style>

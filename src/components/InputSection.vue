@@ -4,7 +4,6 @@
     <b-container v-show="show">
       <!--LIGHT MODE-->
       <b-card
-        v-show="!isDark"
         bg-variant="light"
         header="JellyStat"
         class="text-center mx-auto"
@@ -70,80 +69,6 @@
           >Show Stats!</b-button
         >
       </b-card>
-
-      <!--DARK MODE k-->
-      <b-card
-        v-show="isDark"
-        bg-variant="dark"
-        header="JellyStat"
-        text-variant="white"
-        class="text-center mx-auto"
-      >
-        <b-card-text>
-          <b-row>
-            <b-col md="8">
-              <div role="group">
-                <b-form-input
-                  class="form-input"
-                  id="input-live-ipd"
-                  v-model="serverIP"
-                  :state="serverIPState"
-                  @keyup="$emit('update:serverIP', serverIP)"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Jellyfin IP Address"
-                  trim
-                ></b-form-input>
-
-                <b-form-invalid-feedback id="input-live-feedback">
-                  http:// or https:// must be used!
-                </b-form-invalid-feedback>
-              </div>
-            </b-col>
-
-            <b-col md="4">
-              <div role="group">
-                <b-form-input
-                  class="form-input"
-                  id="input-live-portd"
-                  type="number"
-                  v-model="serverPort"
-                  :state="serverPortState"
-                  @keyup="$emit('update:serverPort', serverPort)"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Port"
-                  trim
-                ></b-form-input>
-              </div>
-            </b-col>
-          </b-row>
-
-          <b-row>
-            <b-col>
-              <div role="group">
-                <b-form-input
-                  class="form-input-apid"
-                  id="input-live"
-                  v-model="serverAPI"
-                  :state="serverAPIState"
-                  @keyup="$emit('update:serverApi', serverApi)"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Jellyfin API key"
-                  trim
-                ></b-form-input>
-              </div>
-            </b-col>
-          </b-row>
-        </b-card-text>
-
-        <b-button
-          variant="primary"
-          @click="
-            submit();
-            allStats();
-          "
-          >Show Stats!</b-button
-        >
-      </b-card>
     </b-container>
 
     <error-section :errFetch="errFetch"></error-section>
@@ -166,7 +91,6 @@ export default {
     serverAPI: String,
     show: Boolean,
     errFetch: Boolean,
-    isDark: Boolean
   },
   computed: {
     serverIPState() {

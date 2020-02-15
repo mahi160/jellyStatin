@@ -4,7 +4,6 @@
       :serverIP.sync="serverIP"
       :serverPort.sync="serverPort"
       :serverAPI.sync="serverAPI"
-      :isDark="isDark"
       :show="show"
       :errFetch="errFetch"
       @all-stat="allStats()"
@@ -40,7 +39,6 @@ export default {
       errFetch: false, //Fetching error
       activityErr: false, //user_stat not found
       isAdmin: true, //is user admin?
-      isDark: false,
 
       serverIP: "http://192.168.31.103",
       serverPort: "8097",
