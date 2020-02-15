@@ -147,7 +147,7 @@
     </b-container>
 
     <error-section :errFetch="errFetch"></error-section>
-    <quote-section></quote-section>
+    <quote-section :show="show"></quote-section>
   </div>
 </template>
 

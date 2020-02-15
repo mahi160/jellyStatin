@@ -42,9 +42,9 @@ export default {
       isAdmin: true, //is user admin?
       isDark: false,
 
-      serverIP: "",
-      serverPort: "",
-      serverAPI: "",
+      serverIP: "http://192.168.31.103",
+      serverPort: "8097",
+      serverAPI: "ad6900c7fa524f6c82f26171234c82b2",
 
       systemStats: [],
       users: [],

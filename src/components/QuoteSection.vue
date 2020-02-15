@@ -1,6 +1,6 @@
 <template>
   <div class="quote-section">
-    <b-container>
+    <b-container v-show="show">
       <blockquote class="mx-auto">
         <p>
           <i>{{ quote[0].name }}</i>
@@ -14,6 +14,9 @@
 <script>
 export default {
   name: "quote-section",
+  props: {
+    show:Boolean
+  },
   data() {
     return {
       quote: []

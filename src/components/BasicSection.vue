@@ -1,6 +1,6 @@
 <template>
   <div class="basic-section">
-    <b-container v-show="show">
+    <b-container v-show="!show">
       <!--Address-->
       <b-row>
         <b-col lg="8" class="mt-3">
