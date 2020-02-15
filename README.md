@@ -1,4 +1,5 @@
-# jellystat
+# jellyStat
+jellyStat is an aplication to see all types (the goal!) of statistics about your jellyfin server.
 
 ## Project setup
 ```
