@@ -30,7 +30,6 @@ export default {
   methods: {
     modeChange: function() {
       this.isDark = !this.isDark;
-      console.log(this.isDark);
     }
   }
 };
