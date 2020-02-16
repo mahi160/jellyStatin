@@ -10,7 +10,6 @@
         :table-variant="tableVariant"
         :dark="dark"
         sticky-header="400px"
-        outlined
         striped
         hover
         :items="items"

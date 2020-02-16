@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-
     <!--Input Card-->
     <input-section
       :serverIP.sync="serverIP"
@@ -28,9 +27,9 @@
       name="System Info"
       :show="show"
       :items="systemStats"
-      :headVariant="headVariant"
+      :headVariant="mode"
       tableVariant="danger"
-      :dark="dark"
+      :dark="isDark"
     ></main-section>
 
     <!--Plugins-->
@@ -38,9 +37,9 @@
       name="Plugins"
       :show="show"
       :items="plugins"
-      :headVariant="headVariant"
+      :headVariant="mode"
       tableVariant="success"
-      :dark="dark"
+      :dark="isDark"
     ></main-section>
 
     <!--Counts-->
@@ -48,9 +47,9 @@
       name="Counts"
       :show="show"
       :items="counts"
-      :headVariant="headVariant"
+      :headVariant="mode"
       tableVariant="warning"
-      :dark="dark"
+      :dark="isDark"
     ></main-section>
   </div>
 </template>
@@ -68,15 +67,15 @@ export default {
     BasicSection,
     MainSection
   },
+  props: {
+    isDark: Boolean
+  },
   data() {
     return {
       show: true, //Show data
       errFetch: false, //Fetching error
       activityErr: false, //user_stat not found
       isAdmin: true, //is user admin?
-
-      headVariant: "light",
-      dark: false,
 
       serverIP: "http://192.168.31.103",
       serverPort: "8097",
@@ -251,8 +250,8 @@ export default {
     }
   },
   computed: {
-    serverIPcom() {
-      return this.serverIP;
+    mode() {
+      return this.isDark ? "dark" : "light";
     }
   }
 };

@@ -2,14 +2,16 @@
   <div id="app" :class="mode">
     <div id="nav">
       <img id="nav-logo" alt="Vue logo" src="./assets/logo.png" />
-      <router-link to="/">Home</router-link> |
+      <router-link to="/" :isDark="isDark">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <a @click="modeChange()" v-show="!isDark"
-        ><img src="./assets/moon.png" alt="dark mode" width="20px"
-      /></a>
-      <a @click="modeChange()" v-show="isDark"
-        ><img src="./assets/sun.png" alt="light mode" width="20px"
-      /></a>
+      <!--MOON-->
+      <a @click="modeChange()" v-show="!isDark">
+        <img src="./assets/moon.png" alt="dark mode" width="20px" />
+      </a>
+      <!--SUN-->
+      <a @click="modeChange()" v-show="isDark">
+        <img src="./assets/sun.png" alt="light mode" width="20px" />
+      </a>
     </div>
     <router-view />
   </div>
@@ -30,6 +32,7 @@ export default {
   methods: {
     modeChange: function() {
       this.isDark = !this.isDark;
+      console.log(`app.vue ${this.isDark}`)
     }
   }
 };
