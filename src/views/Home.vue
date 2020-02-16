@@ -150,21 +150,14 @@ export default {
           for (let i = 0; i < data.length; i++) {
             let x = [];
             x[i] = dateCon(data[i].LastActivityDate);
-            console.log(x[i]);
             let y = [];
             y[i] = data[i].Policy.IsAdministrator;
-            if (y[i]) {
-              var color = [];
-              color[i] = "success";
-            } else {
-              color[i] = "";
-            }
+            
 
             temp.push({
               userName: data[i].Name,
-              LastSeen: x[i],
-              admin: y[i],
-              _rowVariant: color[i]
+              lastSeen: x[i],
+              admin: y[i]
             });
           }
           this.users = temp;
