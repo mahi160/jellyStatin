@@ -47,7 +47,7 @@
                   id="input-live-api"
                   v-model="serverAPI"
                   :state="serverAPIState"
-                  @keyup="$emit('update:serverApi', serverApi)"
+                  @keyup="$emit('update:serverAPI', serverAPI)"
                   aria-describedby="input-live-help input-live-feedback"
                   placeholder="Jellyfin API key"
                   trim
