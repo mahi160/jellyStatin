@@ -14,7 +14,7 @@
 export default {
   name: "error-section",
   props: {
-    errFetch: Boolean
+    errFetch: Boolean //error while fetching data
   }
 };
 </script>

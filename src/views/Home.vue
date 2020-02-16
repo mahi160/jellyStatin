@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+
+    <!--Input Card-->
     <input-section
       :serverIP.sync="serverIP"
       :serverPort.sync="serverPort"
@@ -9,24 +11,53 @@
       @all-stat="allStats()"
       @submit="submit()"
     ></input-section>
+
+    <!--Users-->
     <basic-section
       :serverIP="serverIP"
       :serverPort="serverPort"
       :serverAPI="serverAPI"
-      :systemStats="systemStats"
       :users="users"
-      :plugins="plugins"
       :show="show"
       @all-stat="allStats()"
       @submit="submit()"
     ></basic-section>
 
-    <main-section name="Counts" :show="show" :movies="counts"></main-section>
+    <!--System Info-->
+    <main-section
+      name="System Info"
+      :show="show"
+      :items="systemStats"
+      :headVariant="headVariant"
+      tableVariant="danger"
+      :dark="dark"
+    ></main-section>
+
+    <!--Plugins-->
+    <main-section
+      name="Plugins"
+      :show="show"
+      :items="plugins"
+      :headVariant="headVariant"
+      tableVariant="success"
+      :dark="dark"
+    ></main-section>
+
+    <!--Counts-->
+    <main-section
+      name="Counts"
+      :show="show"
+      :items="counts"
+      :headVariant="headVariant"
+      tableVariant="warning"
+      :dark="dark"
+    ></main-section>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+
 import InputSection from "@/components/InputSection.vue";
 import BasicSection from "@/components/BasicSection.vue";
 import MainSection from "@/components/MainSection.vue";
@@ -43,6 +74,9 @@ export default {
       errFetch: false, //Fetching error
       activityErr: false, //user_stat not found
       isAdmin: true, //is user admin?
+
+      headVariant: "light",
+      dark: false,
 
       serverIP: "http://192.168.31.103",
       serverPort: "8097",
@@ -152,7 +186,6 @@ export default {
             x[i] = dateCon(data[i].LastActivityDate);
             let y = [];
             y[i] = data[i].Policy.IsAdministrator;
-            
 
             temp.push({
               userName: data[i].Name,

@@ -1,20 +1,20 @@
 <template>
   <div class="main-section">
     <b-container v-show="!show">
-      <div class="inputCard mx-auto">
-        <caption style="width:250px" for="stats">
-          <h1>{{ name }}</h1>
-        </caption>
-        <b-table
-          caption-top
-          head-variant="light"
-          table-variant="danger"
-          outlined
-          striped
-          hover
-          :items="movies"
-        ></b-table>
-      </div>
+      <caption style="width:250px" for="stats">
+        <h1>{{ name }}</h1>
+      </caption>
+      <b-table
+        caption-top
+        :head-variant="headVariant"
+        :table-variant="tableVariant"
+        :dark="dark"
+        sticky-header="400px"
+        outlined
+        striped
+        hover
+        :items="items"
+      ></b-table>
     </b-container>
   </div>
 </template>
@@ -25,7 +25,10 @@ export default {
   props: {
     name: String,
     show: Boolean,
-    movies: Array
+    items: Array,
+    headVariant: String,
+    tableVariant: String,
+    dark: Boolean
   }
 };
 </script>

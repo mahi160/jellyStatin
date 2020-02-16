@@ -20,83 +20,38 @@
         </b-col>
       </b-row>
 
-      <!--Basic-->
+      <!--Basic Section-->
       <b-row class="mt-3">
         <!--Left Side-->
-
         <b-col lg="6" class="text-center">
-          <caption style="width:250px" for="stats">
-            <h1>System Stats</h1>
-          </caption>
-          <b-table
-            caption-top
-            head-variant="light"
-            table-variant="danger"
-            outlined
-            striped
-            hover
-            :items="systemStats"
-          ></b-table>
-
           <!--Users-->
           <caption for="users">
             <h1>Users</h1>
           </caption>
-          <!--<table>
-            <thead>
-              <th>Username</th>
-              <th>Last seen</th>
-              <th>Activity</th>
-            </thead>
-            <tbody>
-              <tr v-for="user in users" :key="user.id">
-                <td>{{ user.userName }}</td>
-                <td>{{ user.lastSeen }}</td>
-                <td>{{ user.admin }}</td>
-              </tr>
-            </tbody>
-          </table>-->
-
           <b-table
             caption-top
             outlined
             head-variant="light"
             table-variant="primary"
+            sticky-header="400px"
             hover
-            
             :fields="fields"
             :items="users"
             style="text-transform:capitalize;"
           >
             <!-- A virtual column -->
             <template v-slot:cell(index)="data">
-              <span v-if="data.index < 9">0</span>{{data.index + 1 }}
+              <span v-if="data.index < 9">0</span>{{ data.index + 1 }}
             </template>
             <!-- A custom formatted column -->
             <template v-slot:cell(userName)="data">
-              {{ data.item.userName }} 
-              <small v-if="data.item.admin"><b-badge pill variant="danger">A</b-badge></small>
+              {{ data.item.userName }}
+              <small v-if="data.item.admin"
+                ><b-badge pill variant="danger">A</b-badge></small
+              >
               <small v-else><b-badge pill variant="primary">U</b-badge></small>
-            </template>          
+            </template>
           </b-table>
-        </b-col>
-
-        <!--Right Side-->
-        <b-col lg="6">
-          <caption for="plugins">
-            <h1>Plugins</h1>
-          </caption>
-          <b-table
-            id="plugins"
-            caption-top
-            outlined
-            sticky-header="400px"
-            head-variant="light"
-            table-variant="info"
-            striped
-            hover
-            :items="plugins"
-          ></b-table>
         </b-col>
       </b-row>
     </b-container>
@@ -110,32 +65,26 @@ export default {
     serverIP: String,
     serverPort: String,
     serverAPI: String,
-    systemStats: Array,
     users: Array,
-    plugins: Array,
-    show: Boolean,
+    show: Boolean //to show this section. default: false.
   },
   data() {
-      return {
-        fields: [
-          // A virtual column that doesn't exist in items
-          'index',
-          // A virtual column made up from two fields
-          { key: 'userName', label: 'Username' },
-          // A column that needs custom formatting
-          // A regular column
-          'lastSeen',
-          // A regular column
-          
-          
-        ]
-      }
+    return {
+      //fields for user table
+      fields: [
+        "index",
+        //with admin badge
+        { key: "userName", label: "Username" },
+        "lastSeen"
+      ]
+    };
   },
   methods: {
     submit: function() {
       this.$emit("submit");
     },
     allStats: function() {
+      //will fire the function (in home) to fetch and populate data
       this.$emit("all-stat");
     }
   }
