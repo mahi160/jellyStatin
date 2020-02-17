@@ -124,7 +124,7 @@ export default {
       if (this.serverIP && this.serverAPI && this.serverPort) {
         this.show = !this.show;
         this.activityErr = false;
-        this.errFetch=false;
+        this.errFetch = false;
       } else {
         this.errFetch = true;
       }
