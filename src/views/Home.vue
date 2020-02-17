@@ -124,6 +124,7 @@ export default {
       if (this.serverIP && this.serverAPI && this.serverPort) {
         this.show = !this.show;
         this.activityErr = false;
+        this.errFetch=false;
       } else {
         this.errFetch = true;
       }
@@ -153,6 +154,11 @@ export default {
           });
 
           this.systemStats = temp;
+        }).catch(err => {
+          this.errFetch = true;
+          this.show = true
+          console.log("System Info Fetching Error")
+          return err;
         });
 
       //Fetching Plugins//
