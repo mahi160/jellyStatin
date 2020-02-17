@@ -1,12 +1,10 @@
 <template>
-  <div class="basic-data-section">
-    <b-container v-show="errFetch">
-      <!--WARNING SECTION-->
-      <b-alert variant="danger" class="mx-auto" show dismissible>
-        Cannot Fetch API data from Jellyfin Server! Make sure all inputs are
-        correctly filled.
-      </b-alert>
-    </b-container>
+  <div class="basic-data-section" v-show="errFetch">
+    <!--WARNING SECTION-->
+    <b-alert variant="danger" class="mx-auto" show dismissible>
+      Cannot Fetch API data from Jellyfin Server! Make sure all inputs are
+      correctly filled.
+    </b-alert>
   </div>
 </template>
 

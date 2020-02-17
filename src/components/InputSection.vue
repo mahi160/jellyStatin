@@ -1,76 +1,74 @@
 <template>
-  <div class="input-section">
-    <b-container v-show="show">
-      <b-card bg-variant="light" header="JellyStat" class="text-center mx-auto">
-        <b-card-text>
-          <b-row>
-            <!--IP address-->
-            <b-col md="8">
-              <div role="group">
-                <b-form-input
-                  id="input-live-ip"
-                  v-model="serverIP"
-                  :state="serverIPState"
-                  @keyup="$emit('update:serverIP', serverIP)"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Jellyfin IP Address"
-                  trim
-                ></b-form-input>
+  <div class="input-section" v-show="show">
+    <b-card bg-variant="light" header="JellyStat" class="text-center mx-auto">
+      <b-card-text>
+        <b-row>
+          <!--IP address-->
+          <b-col md="8">
+            <div role="group">
+              <b-form-input
+                id="input-live-ip"
+                v-model="serverIP"
+                :state="serverIPState"
+                @keyup="$emit('update:serverIP', serverIP)"
+                aria-describedby="input-live-help input-live-feedback"
+                placeholder="Jellyfin IP Address"
+                trim
+              ></b-form-input>
 
-                <!--To give error feedback-->
-                <b-form-invalid-feedback id="input-live-feedback">
-                  http:// or https:// must be used!
-                </b-form-invalid-feedback>
-              </div>
-            </b-col>
+              <!--To give error feedback-->
+              <b-form-invalid-feedback id="input-live-feedback">
+                http:// or https:// must be used!
+              </b-form-invalid-feedback>
+            </div>
+          </b-col>
 
-            <!--Port-->
-            <b-col md="4">
-              <div role="group">
-                <b-form-input
-                  id="input-live-port"
-                  type="number"
-                  v-model="serverPort"
-                  :state="serverPortState"
-                  @keyup="$emit('update:serverPort', serverPort)"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Port"
-                  trim
-                ></b-form-input>
-              </div>
-            </b-col>
-          </b-row>
+          <!--Port-->
+          <b-col md="4">
+            <div role="group">
+              <b-form-input
+                id="input-live-port"
+                type="number"
+                v-model="serverPort"
+                :state="serverPortState"
+                @keyup="$emit('update:serverPort', serverPort)"
+                aria-describedby="input-live-help input-live-feedback"
+                placeholder="Port"
+                trim
+              ></b-form-input>
+            </div>
+          </b-col>
+        </b-row>
 
-          <b-row>
-            <!--API-->
-            <b-col>
-              <div role="group">
-                <b-form-input
-                  id="input-live-api"
-                  v-model="serverAPI"
-                  :state="serverAPIState"
-                  @keyup="$emit('update:serverAPI', serverAPI)"
-                  aria-describedby="input-live-help input-live-feedback"
-                  placeholder="Jellyfin API key"
-                  trim
-                ></b-form-input>
-              </div>
-            </b-col>
-          </b-row>
-        </b-card-text>
+        <b-row>
+          <!--API-->
+          <b-col>
+            <div role="group">
+              <b-form-input
+                id="input-live-api"
+                v-model="serverAPI"
+                :state="serverAPIState"
+                @keyup="$emit('update:serverAPI', serverAPI)"
+                aria-describedby="input-live-help input-live-feedback"
+                placeholder="Jellyfin API key"
+                trim
+              ></b-form-input>
+            </div>
+          </b-col>
+        </b-row>
+      </b-card-text>
 
-        <!--Submit Button-->
-        <b-button
-          variant="primary"
-          @click="
-            submit();
-            allStats();
-          "
-        >
-          Show Stats!
-        </b-button>
-      </b-card>
-    </b-container>
+      <!--Submit Button-->
+      <b-button
+        variant="primary"
+        @click="
+          submit();
+          allStats();
+        "
+      >
+        Show Stats!
+      </b-button>
+    </b-card>
 
     <!--Error-->
     <error-section :errFetch="errFetch"></error-section>

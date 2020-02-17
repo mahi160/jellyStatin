@@ -1,13 +1,11 @@
 <template>
-  <div class="quote-section">
-    <b-container v-show="show">
-      <blockquote class="mx-auto">
-        <p>
-          <i>{{ quote[0].name }}</i>
-        </p>
-      </blockquote>
-      <i class="quote">{{ quote[0].auth }}</i>
-    </b-container>
+  <div class="quote-section" v-show="show">
+    <blockquote class="mx-auto">
+      <p>
+        <i>{{ quote[0].name }}</i>
+      </p>
+    </blockquote>
+    <i class="quote">{{ quote[0].auth }}</i>
   </div>
 </template>
 

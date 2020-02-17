@@ -1,56 +1,84 @@
 <template>
   <div class="home">
-    <!--Input Card-->
-    <input-section
-      :serverIP.sync="serverIP"
-      :serverPort.sync="serverPort"
-      :serverAPI.sync="serverAPI"
-      :show="show"
-      :errFetch="errFetch"
-      @all-stat="allStats()"
-      @submit="submit()"
-    ></input-section>
+    <b-container>
+      <!--Input Card-->
+      <input-section
+        :serverIP.sync="serverIP"
+        :serverPort.sync="serverPort"
+        :serverAPI.sync="serverAPI"
+        :show="show"
+        :errFetch="errFetch"
+        @all-stat="allStats()"
+        @submit="submit()"
+      ></input-section>
 
-    <!--Users-->
-    <basic-section
-      :serverIP="serverIP"
-      :serverPort="serverPort"
-      :serverAPI="serverAPI"
-      :users="users"
-      :show="show"
-      @all-stat="allStats()"
-      @submit="submit()"
-    ></basic-section>
+      <!--Address-->
+      <b-row v-show="!show">
+        <b-col lg="8" class="mt-3">
+          <b style="word-break: break-all;">
+            {{ serverIP }}:{{ serverPort }}?api_key={{ serverAPI }}
+          </b>
+        </b-col>
 
-    <!--System Info-->
-    <main-section
-      name="System Info"
-      :show="show"
-      :items="systemStats"
-      :headVariant="mode"
-      tableVariant="danger"
-      :dark="isDark"
-    ></main-section>
+        <b-col lg="4">
+          <b-button variant="success" class="m-2 pt-2" @click="allStats()">
+            Refresh
+          </b-button>
 
-    <!--Plugins-->
-    <main-section
-      name="Plugins"
-      :show="show"
-      :items="plugins"
-      :headVariant="mode"
-      tableVariant="success"
-      :dark="isDark"
-    ></main-section>
+          <b-button variant="danger" class="m-2 pt-2" @click="submit()">
+            Reset
+          </b-button>
+        </b-col>
+      </b-row>
 
-    <!--Counts-->
-    <main-section
-      name="Counts"
-      :show="show"
-      :items="counts"
-      :headVariant="mode"
-      tableVariant="warning"
-      :dark="isDark"
-    ></main-section>
+      <!--Left Side-->
+      <b-row>
+        <b-col lg="6">
+          <!--System Info-->
+          <main-section
+            name="System Info"
+            :show="show"
+            :items="systemStats"
+            :headVariant="mode"
+            tableVariant="danger"
+            :dark="isDark"
+          ></main-section>
+
+          <!--Users-->
+          <user-section
+            :serverIP="serverIP"
+            :serverPort="serverPort"
+            :serverAPI="serverAPI"
+            :users="users"
+            :show="show"
+            @all-stat="allStats()"
+            @submit="submit()"
+          ></user-section>
+        </b-col>
+
+        <b-col lg="6">
+          <!--Plugins-->
+          <main-section
+            name="Plugins"
+            :show="show"
+            :items="plugins"
+            :headVariant="mode"
+            tableVariant="success"
+            :dark="isDark"
+          ></main-section>
+        </b-col>
+      </b-row>
+
+      <!--Counts-->
+      <main-section
+        name="Counts"
+        :show="show"
+        :items="counts"
+        :headVariant="mode"
+        tableVariant="warning"
+        :dark="isDark"
+      ></main-section>
+    </b-container>
   </div>
 </template>
 
@@ -58,13 +86,13 @@
 // @ is an alias to /src
 
 import InputSection from "@/components/InputSection.vue";
-import BasicSection from "@/components/BasicSection.vue";
+import UserSection from "@/components/UserSection.vue";
 import MainSection from "@/components/MainSection.vue";
 export default {
   name: "Home",
   components: {
     InputSection,
-    BasicSection,
+    UserSection,
     MainSection
   },
   props: {

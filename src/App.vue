@@ -32,7 +32,7 @@ export default {
   methods: {
     modeChange: function() {
       this.isDark = !this.isDark;
-      console.log(`app.vue ${this.isDark}`)
+      console.log(`app.vue ${this.isDark}`);
     }
   }
 };
