@@ -2,8 +2,8 @@
   <div id="app" :class="mode">
     <div id="nav">
       <img id="nav-logo" alt="Vue logo" src="./assets/logo.png" />
-      <router-link to="/" :isDark="isDark">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <span class="active" @click="showHome()">Home</span> | 
+      <span :class="active" @click="showAbout()">About</span> | 
       <!--MOON-->
       <a @click="modeChange()" v-show="!isDark">
         <img src="./assets/moon.png" alt="dark mode" width="20px" />
@@ -13,15 +13,28 @@
         <img src="./assets/sun.png" alt="light mode" width="20px" />
       </a>
     </div>
-    <router-view />
+    <home v-if="home" :isDark="isDark"></home>
+    <about v-else></about>
   </div>
 </template>
 
 <script>
+import mixin from "@/mixin/mixin.js"
+import Home from "@/views/Home.vue";
+import About from "@/views/About.vue";
 export default {
+  mixins:[
+    mixin
+  ],
+  components: {
+    Home,
+    About
+  },
   data() {
     return {
-      isDark: false
+      //isDark: false,
+      about: false,
+      home: true
     };
   },
   computed: {
@@ -33,6 +46,14 @@ export default {
     modeChange: function() {
       this.isDark = !this.isDark;
       console.log(`app.vue ${this.isDark}`);
+    },
+    showAbout() {
+      this.home = false;
+      this.about = true;
+    },
+    showHome() {
+      this.home = true;
+      this.about = false;
     }
   }
 };
@@ -186,5 +207,12 @@ export default {
   .card {
     background: #393939 !important;
   }
+}
+
+.active {
+  font-weight: 900;
+  font-size: 20px;
+  cursor: pointer;
+  color: #2ecc71
 }
 </style>

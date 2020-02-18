@@ -16,12 +16,16 @@
     <b-container>
       <h3>What it can do?</h3>
       <b-list-group dark class="list">
-        <b-list-group-item v-for="can in cans" :key="can.id">{{ can.name }}</b-list-group-item>
+        <b-list-group-item v-for="can in cans" :key="can.id">{{
+          can.name
+        }}</b-list-group-item>
       </b-list-group>
 
       <h3>What it can&#39;t do?(aka: Future plan)</h3>
       <b-list-group dark class="list">
-        <b-list-group-item v-for="can in cans" :key="can.id">{{ can.name }}</b-list-group-item>
+        <b-list-group-item v-for="can in cans" :key="can.id">{{
+          can.name
+        }}</b-list-group-item>
       </b-list-group>
     </b-container>
   </div>
@@ -35,7 +39,7 @@ export default {
   },
   data() {
     return {
-      cans:[
+      cans: [
         {
           id: 1,
           name: "Show basic system info"
@@ -45,7 +49,7 @@ export default {
           name: "Show basic user info"
         }
       ]
-    }
+    };
   }
 };
 </script>
@@ -55,7 +59,7 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
-.list{
+.list {
   width: 400px;
   margin: auto;
 }
