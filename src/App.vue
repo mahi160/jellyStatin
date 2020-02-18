@@ -1,9 +1,21 @@
 <template>
   <div id="app" :class="mode">
     <div id="nav">
-      <img id="nav-logo" alt="Vue logo" src="./assets/logo.png" />
-      <span class="active" @click="showHome()">Home</span> | 
-      <span :class="active" @click="showAbout()">About</span> | 
+      <!--Brand-->
+      <b-navbar-brand id="nav-logo" href="#">
+        <img alt="Jellyfin logo" src="./assets/logo.png" width="40px" />
+        JellyStatin
+      </b-navbar-brand>
+
+      <!--Link-->
+      <span :class="{ active: home, inactive: about }" @click="showHome()">
+        Home
+      </span>
+      |
+      <span :class="{ active: about, inactive: home }" @click="showAbout()">
+        About
+      </span>
+      |
       <!--MOON-->
       <a @click="modeChange()" v-show="!isDark">
         <img src="./assets/moon.png" alt="dark mode" width="20px" />
@@ -13,26 +25,25 @@
         <img src="./assets/sun.png" alt="light mode" width="20px" />
       </a>
     </div>
+
     <home v-if="home" :isDark="isDark"></home>
+
     <about v-else></about>
   </div>
 </template>
 
 <script>
-import mixin from "@/mixin/mixin.js"
+import mixin from "@/mixin/mixin.js";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 export default {
-  mixins:[
-    mixin
-  ],
+  mixins: [mixin],
   components: {
     Home,
     About
   },
   data() {
     return {
-      //isDark: false,
       about: false,
       home: true
     };
@@ -60,8 +71,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css?family=Lacquer|Noto+Serif:400,400i,700,700i&display=swap");
 #app {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Noto serif", serif, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -73,11 +85,21 @@ export default {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 40px;
 }
 
 .lightMode {
-  color: #2c3e50;
+  .inactive {
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: #2c3e50;
+  }
+  .active {
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: #5563d0;
+  }
   background: linear-gradient(
       22.5deg,
       rgba(67, 67, 67, 0.02) 0%,
@@ -127,23 +149,33 @@ export default {
 
   #nav {
     padding: 30px;
-
     a {
       font-weight: bold;
-      color: #2c3e50;
-
-      &.router-link-exact-active {
-        color: #5563d0;
-      }
+      color: rgba(0, 0, 0, 0.2);
     }
+  }
+  a {
+    color: #5563d0;
   }
 }
 
 .darkMode {
-  color: #fffff0;
+  color: #f5f6fa;
+  .inactive {
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: #f5f6fa;
+  }
+  .active {
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    color: #0097e6;
+  }
   input {
-    color: #fffff0;
-    background-color: #353535;
+    color: #f5f6fa;
+    background-color: #343a40;
   }
 
   background: linear-gradient(
@@ -194,25 +226,13 @@ export default {
 
   #nav {
     padding: 30px;
-
     a {
       font-weight: bold;
-      color: #95a5a6;
-
-      &.router-link-exact-active {
-        color: #2ecc71;
-      }
+      color: rgba(256, 256, 256, 0.2);
     }
   }
-  .card {
-    background: #393939 !important;
+  a {
+    color: #0097e6;
   }
-}
-
-.active {
-  font-weight: 900;
-  font-size: 20px;
-  cursor: pointer;
-  color: #2ecc71
 }
 </style>

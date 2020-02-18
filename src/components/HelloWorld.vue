@@ -12,22 +12,6 @@
       <em>Electron.js</em>. You can find the source code at
       <a href="">Gitlab</a>
     </p>
-
-    <b-container>
-      <h3>What it can do?</h3>
-      <b-list-group dark class="list">
-        <b-list-group-item v-for="can in cans" :key="can.id">{{
-          can.name
-        }}</b-list-group-item>
-      </b-list-group>
-
-      <h3>What it can&#39;t do?(aka: Future plan)</h3>
-      <b-list-group dark class="list">
-        <b-list-group-item v-for="can in cans" :key="can.id">{{
-          can.name
-        }}</b-list-group-item>
-      </b-list-group>
-    </b-container>
   </div>
 </template>
 
@@ -36,20 +20,6 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
-  },
-  data() {
-    return {
-      cans: [
-        {
-          id: 1,
-          name: "Show basic system info"
-        },
-        {
-          id: 2,
-          name: "Show basic user info"
-        }
-      ]
-    };
   }
 };
 </script>
@@ -62,8 +32,5 @@ h3 {
 .list {
   width: 400px;
   margin: auto;
-}
-a {
-  color: #5563d0;
 }
 </style>

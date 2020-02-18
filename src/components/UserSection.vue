@@ -7,12 +7,11 @@
 
     <b-table
       caption-top
-      outlined
-      head-variant="light"
-      table-variant="primary"
+      :head-variant="headVariant"
+      :table-variant="tableVariant"
+      :dark="dark"
       sticky-header="400px"
       hover
-      :dark="dark"
       :fields="fields"
       :items="users"
       style="text-transform:capitalize;"
@@ -26,12 +25,12 @@
       <template v-slot:cell(userName)="data">
         {{ data.item.userName }}
         <small v-if="data.item.admin">
-          <b-badge pill variant="danger">
+          <b-badge pill variant="warning">
             A
           </b-badge>
         </small>
         <small v-else>
-          <b-badge pill variant="primary">
+          <b-badge pill variant="success">
             U
           </b-badge>
         </small>
@@ -46,7 +45,9 @@ export default {
   props: {
     users: Array,
     show: Boolean, //to show this section. default: false.
-    dark: Boolean
+    dark: Boolean,
+    headVariant: String,
+    tableVariant: String
   },
   data() {
     return {

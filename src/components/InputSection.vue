@@ -1,6 +1,11 @@
 <template>
   <div class="input-section" v-show="show">
-    <b-card bg-variant="light" header="JellyStat" class="text-center mx-auto">
+    <b-card
+      :bg-variant="bgVariant"
+      :text-variant="textVariant"
+      header="Welcome"
+      class="text-center mx-auto"
+    >
       <b-card-text>
         <b-row>
           <!--IP address-->
@@ -89,7 +94,9 @@ export default {
     serverPort: String,
     serverAPI: String,
     show: Boolean,
-    errFetch: Boolean
+    errFetch: Boolean,
+    bgVariant: String,
+    textVariant: String
   },
   computed: {
     serverIPState() {

@@ -64,7 +64,7 @@ blockquote::after {
   vertical-align: -0.4em;
 }
 blockquote p {
-  font-family: cursive;
+  font-family: "Lacquer", cursive;
   display: inline;
   color: #959699;
   font-size: 24px;

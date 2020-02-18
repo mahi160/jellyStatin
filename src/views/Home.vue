@@ -8,6 +8,8 @@
         :serverAPI.sync="serverAPI"
         :show="show"
         :errFetch="errFetch"
+        :bgVariant="mode"
+        :texVariant="textVariant"
         @all-stat="allStats()"
         @submit="submit()"
       ></input-section>
@@ -15,7 +17,7 @@
       <!--Address-->
       <b-row v-show="!show">
         <b-col lg="8" class="mt-3">
-          <b style="word-break: break-all;">
+          <b id="headLine" style="word-break: break-all;">
             {{ serverIP }}:{{ serverPort }}?api_key={{ serverAPI }}
           </b>
         </b-col>
@@ -51,6 +53,9 @@
             :serverAPI="serverAPI"
             :users="users"
             :show="show"
+            :headVariant="mode"
+            tableVariant="primary"
+            :dark="isDark"
             @all-stat="allStats()"
             @submit="submit()"
           ></user-section>
@@ -75,7 +80,7 @@
         :show="show"
         :items="counts"
         :headVariant="mode"
-        tableVariant="warning"
+        tableVariant="info"
         :dark="isDark"
       ></main-section>
     </b-container>
@@ -104,9 +109,9 @@ export default {
       activityErr: false, //user_stat not found
       isAdmin: true, //is user admin?
 
-      serverIP: "http://192.168.31.103",
-      serverPort: "8097",
-      serverAPI: "ad6900c7fa524f6c82f26171234c82b2",
+      serverIP: "",
+      serverPort: "",
+      serverAPI: "",
 
       systemStats: [],
       users: [],
