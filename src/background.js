@@ -20,11 +20,10 @@ protocol.registerSchemesAsPrivileged([
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 1280,
-    height: 720,
+    width: 800,
+    height: 600,
     webPreferences: {
       nodeIntegration: true,
-      devTools: false
     },
     icon: path.join(__static, 'icon.png')
   });
