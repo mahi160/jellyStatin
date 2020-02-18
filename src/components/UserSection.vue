@@ -12,6 +12,7 @@
       table-variant="primary"
       sticky-header="400px"
       hover
+      :dark="dark"
       :fields="fields"
       :items="users"
       style="text-transform:capitalize;"
@@ -44,7 +45,8 @@ export default {
   name: "basic-section",
   props: {
     users: Array,
-    show: Boolean //to show this section. default: false.
+    show: Boolean, //to show this section. default: false.
+    dark: Boolean
   },
   data() {
     return {

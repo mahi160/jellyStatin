@@ -83,11 +83,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 import InputSection from "@/components/InputSection.vue";
 import UserSection from "@/components/UserSection.vue";
 import MainSection from "@/components/MainSection.vue";
+
 export default {
   name: "Home",
   components: {
