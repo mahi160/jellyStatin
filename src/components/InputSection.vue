@@ -25,35 +25,31 @@
 
           <!--Port-->
           <b-col md="4">
-            <div role="group">
-              <b-form-input
-                id="input-live-port"
-                type="number"
-                v-model="serverPort"
-                :state="serverPortState"
-                @keyup="$emit('update:serverPort', serverPort)"
-                aria-describedby="input-live-help input-live-feedback"
-                placeholder="Port"
-                trim
-              ></b-form-input>
-            </div>
+            <b-form-input
+              id="input-live-port"
+              type="text"
+              v-model="serverPort"
+              :state="serverPortState"
+              @keyup="$emit('update:serverPort', serverPort)"
+              aria-describedby="input-live-help input-live-feedback"
+              placeholder="Port"
+              trim
+            ></b-form-input>
           </b-col>
         </b-row>
 
         <b-row>
           <!--API-->
           <b-col>
-            <div role="group">
-              <b-form-input
-                id="input-live-api"
-                v-model="serverAPI"
-                :state="serverAPIState"
-                @keyup="$emit('update:serverAPI', serverAPI)"
-                aria-describedby="input-live-help input-live-feedback"
-                placeholder="Jellyfin API key"
-                trim
-              ></b-form-input>
-            </div>
+            <b-form-input
+              id="input-live-api"
+              v-model="serverAPI"
+              :state="serverAPIState"
+              @keyup="$emit('update:serverAPI', serverAPI)"
+              aria-describedby="input-live-help input-live-feedback"
+              placeholder="Jellyfin API key"
+              trim
+            ></b-form-input>
           </b-col>
         </b-row>
       </b-card-text>

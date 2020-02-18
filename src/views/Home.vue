@@ -154,10 +154,11 @@ export default {
           });
 
           this.systemStats = temp;
-        }).catch(err => {
+        })
+        .catch(err => {
           this.errFetch = true;
-          this.show = true
-          console.log("System Info Fetching Error")
+          this.show = true;
+          console.log("System Info Fetching Error");
           return err;
         });
 
