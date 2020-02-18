@@ -24,3 +24,4 @@ npm run lint
 ```
 npm run electron:build
 ```
+![Alt text](.src/assets/screenshots/home_dark.png?raw=true "Home Page Dark Mode")
