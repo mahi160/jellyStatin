@@ -1,7 +1,7 @@
 "use strict";
 
 import { app, protocol, BrowserWindow } from "electron";
-import path from 'path';
+import path from "path";
 import {
   createProtocol
   /* installVueDevtools */
@@ -26,7 +26,7 @@ function createWindow() {
       nodeIntegration: true,
       devTools: false
     },
-    icon: path.join(__static, 'icon.png')
+    icon: path.join(__static, "icon.png")
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
