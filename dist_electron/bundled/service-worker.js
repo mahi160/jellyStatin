@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "app://./precache-manifest.1ef3b0d2428d07494fa4ae199f9f9ee2.js"
+  "app://./precache-manifest.f9c4c0bdbe5be6bb010f63e3e5bc57c1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "jellystatin"});
