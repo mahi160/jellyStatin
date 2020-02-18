@@ -24,6 +24,7 @@ function createWindow() {
     height: 720,
     webPreferences: {
       nodeIntegration: true,
+      devTools: false
     },
     icon: path.join(__static, 'icon.png')
   });
