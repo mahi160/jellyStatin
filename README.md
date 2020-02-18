@@ -28,6 +28,9 @@ npm run lint
 npm run electron:build
 ```
 ### Screenshots 
+```html
+  <img src="./src/assets/screenshots/home_light.png" width="200px"/>
+```
 ![Home Page light Mode](./src/assets/screenshots/home_light.png?raw=true "Home Page light Mode")
 ![Home Page Dark Mode](./src/assets/screenshots/home_dark.png?raw=true "Home Page Dark Mode")
 ![main Page light Mode](./src/assets/screenshots/main_light.png?raw=true "Main Page light Mode")
