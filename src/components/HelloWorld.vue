@@ -10,7 +10,7 @@
     <p>
       It is built on <em>Vue.js</em>, <em>Bootstrapvue</em> and
       <em>Electron.js</em>. You can find the source code at
-      <a href="">Gitlab</a>
+      <a href="https://gitlab.com/mahi160/jellystat">Gitlab</a>
     </p>
   </div>
 </template>
