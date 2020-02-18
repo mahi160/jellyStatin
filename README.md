@@ -1,6 +1,9 @@
 # jellyStat
 jellyStat is an aplication to see all types (the goal!) of statistics about your jellyfin server. Uses Vue.JS.
 
+## Reminder
+This is a very early stage of an app. It can't do much right now. Only gives some basic data (See SS below). Will be improved over time INSHA ALLAH. peace!
+
 ## Project setup
 ```
 npm install
