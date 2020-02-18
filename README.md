@@ -28,9 +28,9 @@ npm run lint
 npm run electron:build
 ```
 ### Screenshots 
-<img src="./src/assets/screenshots/home_light.png" width="200px" height="150px"/>
-<img src="./src/assets/screenshots/home_dark.png" width="200px" height="150px"/>
-<img src="./src/assets/screenshots/main_light.png" width="200px" height="150px"/>
-<img src="./src/assets/screenshots/main_dark.png" width="200px" height="150px"/>
-<img src="./src/assets/screenshots/about_light.png" width="200px" height="150px"/>
-<img src="./src/assets/screenshots/about_dark.png" width="200px" height="150px"/>
+<img src="./src/assets/screenshots/home_light.png" width="416px" height="200px"/>
+<img src="./src/assets/screenshots/home_dark.png" width="416px" height="200px"/>
+<img src="./src/assets/screenshots/main_light.png" width="416px" height="200px"/>
+<img src="./src/assets/screenshots/main_dark.png" width="416px" height="200px"/>
+<img src="./src/assets/screenshots/about_light.png" width="416px" height="200px"/>
+<img src="./src/assets/screenshots/about_dark.png" width="416px" height="200px"/>
