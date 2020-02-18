@@ -2,111 +2,28 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
+      This is an application for showing some basic statics of your
+      <em
+        ><a href="https://jellyfin.org/" target="_blank">Jellyfin server</a></em
       >.
     </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa"
-          target="_blank"
-          rel="noopener"
-          >pwa</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+    <p>
+      It is built on <em>Vue.js</em>, <em>Bootstrapvue</em> and
+      <em>Electron.js</em>. You can find the source code at
+      <a href="">Gitlab</a>
+    </p>
+
+    <b-container>
+      <h3>What it can do?</h3>
+      <b-list-group dark class="list">
+        <b-list-group-item v-for="can in cans" :key="can.id">{{ can.name }}</b-list-group-item>
+      </b-list-group>
+
+      <h3>What it can&#39;t do?(aka: Future plan)</h3>
+      <b-list-group dark class="list">
+        <b-list-group-item v-for="can in cans" :key="can.id">{{ can.name }}</b-list-group-item>
+      </b-list-group>
+    </b-container>
   </div>
 </template>
 
@@ -115,6 +32,20 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data() {
+    return {
+      cans:[
+        {
+          id: 1,
+          name: "Show basic system info"
+        },
+        {
+          id: 2,
+          name: "Show basic user info"
+        }
+      ]
+    }
   }
 };
 </script>
@@ -124,15 +55,11 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
+.list{
+  width: 400px;
+  margin: auto;
 }
 a {
-  color: #42b983;
+  color: #5563d0;
 }
 </style>
