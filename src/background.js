@@ -23,10 +23,10 @@ function createWindow() {
     width: 1280,
     height: 720,
     webPreferences: {
-      nodeIntegration: true,
-      devTools: false
-    },
-    icon: path.join(__static, "icon.png")
+      nodeIntegration: true
+      //devTools: false
+    }
+    //icon: path.join(__static, "icon.png")
   });
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {

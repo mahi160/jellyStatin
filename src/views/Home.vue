@@ -108,9 +108,9 @@ export default {
       activityErr: false, //user_stat not found
       isAdmin: true, //is user admin?
 
-      serverIP: "",
-      serverPort: "",
-      serverAPI: "",
+      serverIP: localStorage.IP,
+      serverPort: localStorage.Port,
+      serverAPI: localStorage.API,
 
       systemStats: [],
       users: [],

@@ -100,13 +100,13 @@ export default {
   },
   computed: {
     serverIPState() {
-      return this.serverIP.search("http") ? false : true;
+      return String(this.serverIP).search("http") ? false : true;
     },
     serverPortState() {
-      return this.serverPort.length == 4 ? true : false;
+      return String(this.serverPort).length == 4 ? true : false;
     },
     serverAPIState() {
-      return this.serverAPI.length >= 15 ? true : false;
+      return String(this.serverAPI).length >= 15 ? true : false;
     }
   },
   methods: {
