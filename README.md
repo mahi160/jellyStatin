@@ -28,9 +28,10 @@ npm run lint
 npm run electron:build
 ```
 ### Screenshots 
-![Home Page light Mode](./src/assets/screenshots/home_light.png/200x150 "Home Page light Mode")
-![Home Page Dark Mode](./src/assets/screenshots/home_dark.png/200x150 "Home Page Dark Mode")
-![main Page light Mode](./src/assets/screenshots/main_light.png/200x150 "Main Page light Mode")
-![main Page Dark Mode](./src/assets/screenshots/main_dark.png/200x150 "Main Page Dark Mode")
-![about Page light Mode](./src/assets/screenshots/about_light.png/200x150 "About Page light Mode")
-![about Page Dark Mode](./src/assets/screenshots/about_dark.png/200x150 "About Page Dark Mode")
+<img src="./src/assets/screenshots/main_dark.png" width="100" height="100">
+![Home Page light Mode](./src/assets/screenshots/home_light.png?raw=true "Home Page light Mode")
+![Home Page Dark Mode](./src/assets/screenshots/home_dark.png?raw=true "Home Page Dark Mode")
+![main Page light Mode](./src/assets/screenshots/main_light.png?raw=true "Main Page light Mode")
+![main Page Dark Mode](./src/assets/screenshots/main_dark.png?raw=true "Main Page Dark Mode")
+![about Page light Mode](./src/assets/screenshots/about_light.png?raw=true "About Page light Mode")
+![about Page Dark Mode](./src/assets/screenshots/about_dark.png?raw=true "About Page Dark Mode")
