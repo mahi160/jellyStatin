@@ -1,5 +1,5 @@
 # jellyStat
-jellyStat is an aplication to see all types (the goal!) of statistics about your jellyfin server.
+jellyStat is an aplication to see all types (the goal!) of statistics about your jellyfin server. Uses Vue.JS.
 
 ## Project setup
 ```
@@ -20,6 +20,7 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Building Executables
+```
+npm run electron:build
+```
