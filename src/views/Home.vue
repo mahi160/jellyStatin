@@ -9,7 +9,6 @@
         :show="show"
         :errFetch="errFetch"
         :bgVariant="mode"
-        :texVariant="textVariant"
         @all-stat="allStats()"
         @submit="submit()"
       ></input-section>
