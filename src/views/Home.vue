@@ -108,7 +108,7 @@ export default {
       activityErr: false, //user_stat not found
       isAdmin: true, //is user admin?
 
-      serverIP: localStorage.IP ,
+      serverIP: localStorage.IP,
       serverPort: localStorage.Port,
       serverAPI: localStorage.API,
 
@@ -120,7 +120,7 @@ export default {
       musics: [],
       others: [],
       plugins: [],
-      serv:[]
+      serv: []
     };
   },
   methods: {
@@ -132,21 +132,21 @@ export default {
       } else {
         this.errFetch = true;
       }
-      localStorage.IP=this.serverIP;
-      localStorage.Port=this.serverPort;
-      localStorage.API=this.serverAPI;
+      localStorage.IP = this.serverIP;
+      localStorage.Port = this.serverPort;
+      localStorage.API = this.serverAPI;
 
       //Saving the file
 
-      var fs = require('fs')
+      var fs = require("fs");
       //var serv = [];
-      this.serv.push(this.serverIP,this.serverPort,this.serverAPI);
+      this.serv.push(this.serverIP, this.serverPort, this.serverAPI);
       var json = JSON.stringify(this.serv);
-      fs.writeFile('serv.json', json, 'utf8',(err)=>{
-        if(err){
-          return console.log(err)
+      fs.writeFile("serv.json", json, "utf8", err => {
+        if (err) {
+          return console.log(err);
         }
-        console.log(this.serv)
+        console.log(this.serv);
       });
     },
     allStats: function() {
@@ -269,7 +269,7 @@ export default {
             Books: data.BookCount
           });
           this.counts = tempC;
-        }); 
+        });
     }
   },
   computed: {

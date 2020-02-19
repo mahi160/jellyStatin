@@ -4,28 +4,18 @@ jellyStat is an aplication to see all types (the goal!) of statistics about your
 ## Reminder
 This is a very early stage of an app. It can't do much right now. Only gives some basic data (See SS below). Will be improved over time INSHA ALLAH. peace!
 
-## Project setup
+## Project setup steps
 ```
-npm install
+npm install (installs required packages)
 ```
-
-### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run serve (compiles and hot reload, open with wb browser, http://localhost:8080)
 ```
-
-### Compiles and minifies for production
 ```
-npm run build
+npm run electron:generate-icons (genarate icons for electron app in dist_electron/icons folder)
 ```
-
-### Lints and fixes files
 ```
-npm run lint
-```
-### Building Executables
-```
-npm run electron:build
+npm run electron:build (builds electron app for your os. ie. .exe in windows, appimage in linux)
 ```
 ### Screenshots 
 <img src="./src/assets/screenshots/home_light.png" width="416px" height="200px"/>
