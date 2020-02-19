@@ -108,7 +108,7 @@ export default {
       activityErr: false, //user_stat not found
       isAdmin: true, //is user admin?
 
-      serverIP: localStorage.IP,
+      serverIP: localStorage.IP ,
       serverPort: localStorage.Port,
       serverAPI: localStorage.API,
 
@@ -131,6 +131,22 @@ export default {
       } else {
         this.errFetch = true;
       }
+      localStorage.IP=this.serverIP;
+      localStorage.Port=this.serverPort;
+      localStorage.API=this.serverAPI;
+
+      //Saving the file
+
+      var fs = require('fs')
+      var serv = [];
+      serv.push(this.serverIP,this.serverPort,this.serverAPI);
+      var json = JSON.stringify(serv);
+      fs.writeFile('serv.json', json, 'utf8',(err)=>{
+        if(err){
+          return console.log(err)
+        }
+        console.log(serv)
+      });
     },
     allStats: function() {
       const url = {
@@ -239,38 +255,6 @@ export default {
           return res.json();
         })
         .then(data => {
-          /*
-          let tempMo = [];
-          tempMo.push({
-            Movies: data.MovieCount,
-            BoxSets: data.BoxSetCount
-          });
-          this.movies = tempMo;
-
-          let tempSe = [];
-          tempSe.push({
-            Series: data.SeriesCount,
-            Episodes: data.EpisodeCount
-          });
-          this.tvShows = tempSe;
-
-          let tempMu = [];
-          tempMu.push({
-            Songs: data.SongCount,
-            albums: data.AlbumCount,
-            artists: data.ArtistCount,
-            musicVideos: data.MusicVideoCount
-          });
-          this.musics = tempMu;
-
-          let tempOt = [];
-          tempOt.push({
-            Books: data.BookCount,
-            Trailers: data.TrailerCount
-          });
-          this.others = tempOt;
-        */
-
           let tempC = [];
           tempC.push({
             Movies: data.MovieCount,
@@ -284,7 +268,7 @@ export default {
             Books: data.BookCount
           });
           this.counts = tempC;
-        });
+        }); 
     }
   },
   computed: {
