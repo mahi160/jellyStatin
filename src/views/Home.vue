@@ -119,7 +119,8 @@ export default {
       tvShows: [],
       musics: [],
       others: [],
-      plugins: []
+      plugins: [],
+      serv:[]
     };
   },
   methods: {
@@ -138,14 +139,14 @@ export default {
       //Saving the file
 
       var fs = require('fs')
-      var serv = [];
-      serv.push(this.serverIP,this.serverPort,this.serverAPI);
-      var json = JSON.stringify(serv);
+      //var serv = [];
+      this.serv.push(this.serverIP,this.serverPort,this.serverAPI);
+      var json = JSON.stringify(this.serv);
       fs.writeFile('serv.json', json, 'utf8',(err)=>{
         if(err){
           return console.log(err)
         }
-        console.log(serv)
+        console.log(this.serv)
       });
     },
     allStats: function() {
