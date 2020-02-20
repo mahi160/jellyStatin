@@ -65,6 +65,7 @@
         @click="
           submit();
           allStats();
+          saveInput();
         "
       >
         Show Stats!
@@ -76,6 +77,12 @@
 
     <!--Quote-->
     <quote-section :show="show"></quote-section>
+
+    <!--Server Save-->
+    <b-table class="mt-3" striped hover :dark="dark" small :items="serv">
+      <template v-slot:table-caption>Recent Servers</template>
+    </b-table>
+
   </div>
 </template>
 
@@ -96,7 +103,13 @@ export default {
     show: Boolean,
     errFetch: Boolean,
     bgVariant: String,
-    textVariant: String
+    textVariant: String,
+    dark: Boolean
+  },
+  data(){
+    return {
+      serv: JSON.parse(localStorage.serv),
+    }
   },
   computed: {
     serverIPState() {
@@ -112,6 +125,21 @@ export default {
   methods: {
     submit() {
       this.$emit("submit");
+    },
+    saveInput(){
+      if(this.serv.length>=5){
+        this.serv.pop({
+          IP:this.serverIP, 
+          Port:this.serverPort, 
+          API:this.serverAPI,
+        });
+      }
+      this.serv.unshift({
+        IP:this.serverIP, 
+        Port:this.serverPort, 
+        API:this.serverAPI});
+        localStorage.serv = JSON.stringify(this.serv)
+        console.log(localStorage.serv)
     },
     allStats() {
       this.$emit("all-stat");

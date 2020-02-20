@@ -9,6 +9,7 @@
         :show="show"
         :errFetch="errFetch"
         :bgVariant="mode"
+        :dark="isDark"
         @all-stat="allStats()"
         @submit="submit()"
       ></input-section>
@@ -137,10 +138,8 @@ export default {
       localStorage.API = this.serverAPI;
 
       //Saving the file
-
+      /*
       var fs = require("fs");
-      //var serv = [];
-      this.serv.push(this.serverIP, this.serverPort, this.serverAPI);
       var json = JSON.stringify(this.serv);
       fs.writeFile("serv.json", json, "utf8", err => {
         if (err) {
@@ -148,6 +147,7 @@ export default {
         }
         console.log(this.serv);
       });
+      */
     },
     allStats: function() {
       const url = {
