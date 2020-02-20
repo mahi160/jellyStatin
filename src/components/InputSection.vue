@@ -82,13 +82,15 @@
     <b-table 
       v-if="serv.length != 0"
       class="mt-3" 
-      striped hover  
+      striped 
+      hover  
       :dark="dark" 
       small 
+      :fields="servFields"
       :items="serv"
     >
-      <template v-slot:cell(index)="data">
-        {{ data.index + 1 }}
+      <template v-slot:cell(no.)="data">
+        0{{ data.index + 1 }}
       </template>
 
       <template v-slot:table-caption>
@@ -120,7 +122,10 @@ export default {
   },
   data() {
     return {
-      serv: []
+      serv:[],
+      servFields: [
+        "no.","IP","Port","API"
+      ]
     };
   },
   computed: {
