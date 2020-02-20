@@ -79,24 +79,25 @@
     <quote-section :show="show"></quote-section>
 
     <!--Server Save-->
-    <b-table 
-      v-if="serv.length != 0"
-      class="mt-3" 
-      striped 
-      hover  
-      :dark="dark" 
-      small 
-      :fields="servFields"
-      :items="serv"
-    >
-      <template v-slot:cell(no.)="data">
-        0{{ data.index + 1 }}
-      </template>
+    <b-container>
+      <b-table
+        style="max-width:90%"
+        v-if="serv.length != 0"
+        class="mt-3 mx-auto"
+        striped
+        hover
+        :dark="dark"
+        small
+        :fields="servFields"
+        :items="serv"
+      >
+        <template v-slot:cell(no.)="data"> 0{{ data.index + 1 }} </template>
 
-      <template v-slot:table-caption>
-        Recent Servers 
-      </template>
-    </b-table>
+        <template v-slot:table-caption>
+          Recent Servers
+        </template>
+      </b-table>
+    </b-container>
   </div>
 </template>
 
@@ -122,10 +123,8 @@ export default {
   },
   data() {
     return {
-      serv:[],
-      servFields: [
-        "no.","IP","Port","API"
-      ]
+      serv: [],
+      servFields: ["no.", "IP", "Port", "API"]
     };
   },
   computed: {
@@ -142,17 +141,15 @@ export default {
   methods: {
     submit() {
       this.$emit("submit");
-      localStorage.serv = JSON.stringify(this.serv);  
+      localStorage.serv = JSON.stringify(this.serv);
     },
     allStats() {
       this.$emit("all-stat");
     },
     saveInput() {
-      setTimeout(()=>{
+      setTimeout(() => {
         let rowVariant;
-        this.errFetch ? 
-        rowVariant="danger"
-        : rowVariant="success";
+        this.errFetch ? (rowVariant = "danger") : (rowVariant = "success");
 
         this.serv.unshift({
           IP: this.serverIP,
@@ -167,8 +164,7 @@ export default {
             API: this.serverAPI
           });
         }
-      }, 1000)
-      
+      }, 1000);
     },
     clean() {
       alert("Are you sure? You Have to type again!");
