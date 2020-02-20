@@ -79,8 +79,21 @@
     <quote-section :show="show"></quote-section>
 
     <!--Server Save-->
-    <b-table class="mt-3" striped hover :dark="dark" small :items="serv">
-      <template v-slot:table-caption>Recent Servers</template>
+    <b-table 
+      v-if="serv.length != 0"
+      class="mt-3" 
+      striped hover  
+      :dark="dark" 
+      small 
+      :items="serv"
+    >
+      <template v-slot:cell(index)="data">
+        {{ data.index + 1 }}
+      </template>
+
+      <template v-slot:table-caption>
+        Recent Servers 
+      </template>
     </b-table>
   </div>
 </template>
@@ -107,7 +120,7 @@ export default {
   },
   data() {
     return {
-      serv: JSON.parse(localStorage.serv)
+      serv: []
     };
   },
   computed: {
@@ -124,29 +137,39 @@ export default {
   methods: {
     submit() {
       this.$emit("submit");
-    },
-    saveInput() {
-      if (this.serv.length >= 5) {
-        this.serv.pop({
-          IP: this.serverIP,
-          Port: this.serverPort,
-          API: this.serverAPI
-        });
-      }
-      let rowVariant;
-      this.errFetch ? 
-      rowVariant="danger"
-      : rowVariant="success";
-      this.serv.unshift({
-        IP: this.serverIP,
-        Port: this.serverPort,
-        API: this.serverAPI,
-        _rowVariant: rowVariant
-      });
-      localStorage.serv = JSON.stringify(this.serv);
+      localStorage.serv = JSON.stringify(this.serv);  
     },
     allStats() {
       this.$emit("all-stat");
+    },
+    saveInput() {
+      setTimeout(()=>{
+        let rowVariant;
+        this.errFetch ? 
+        rowVariant="danger"
+        : rowVariant="success";
+
+        this.serv.unshift({
+          IP: this.serverIP,
+          Port: this.serverPort,
+          API: this.serverAPI,
+          _rowVariant: rowVariant
+        });
+        if (this.serv.length >= 5) {
+          this.serv.pop({
+            IP: this.serverIP,
+            Port: this.serverPort,
+            API: this.serverAPI
+          });
+        }
+      }, 100)
+      
+    },
+    clean() {
+      alert("Are you sure? You Have to type again!");
+      localStorage.clear();
+      alert("All Cleared!!!");
+      window.location.reload();
     }
   }
 };
