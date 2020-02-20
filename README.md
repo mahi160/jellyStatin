@@ -18,7 +18,7 @@ npm run electron:generate-icons (genarate icons for electron app in dist_electro
 npm run electron:build (builds electron app for your os. ie. .exe in windows, appimage in linux)
 ```
 ```
-<a href="https://www.dropbox.com/sh/cp5r9bjqkz1yfcs/AAA42rFJOHZ4rwwK3AAVzuVza?dl=0" target="_blank">Premade Executables</a>
+[Premade Executables](https://www.dropbox.com/sh/cp5r9bjqkz1yfcs/AAA42rFJOHZ4rwwK3AAVzuVza?dl=0)
 ```
 ## Screenshots 
 <img src="./src/assets/screenshots/home_light.png" width="416px" height="200px"/>
