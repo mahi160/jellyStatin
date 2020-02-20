@@ -134,7 +134,9 @@ export default {
         });
       }
       let rowVariant;
-      this.errFetch ? rowVariant="success":rowVariant="danger";
+      this.errFetch ? 
+      rowVariant="danger"
+      : rowVariant="success";
       this.serv.unshift({
         IP: this.serverIP,
         Port: this.serverPort,
@@ -142,7 +144,6 @@ export default {
         _rowVariant: rowVariant
       });
       localStorage.serv = JSON.stringify(this.serv);
-      console.log(localStorage.serv);
     },
     allStats() {
       this.$emit("all-stat");
