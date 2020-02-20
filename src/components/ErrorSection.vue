@@ -1,7 +1,7 @@
 <template>
   <div class="basic-data-section" v-show="errFetch">
     <!--WARNING SECTION-->
-    <b-alert variant="danger" class="mx-auto" show dismissible>
+    <b-alert variant="danger" class="mx-auto" show>
       Cannot Fetch API data from Jellyfin Server! Make sure all inputs are
       correctly filled.
     </b-alert>

@@ -162,7 +162,7 @@ export default {
             API: this.serverAPI
           });
         }
-      }, 100)
+      }, 1000)
       
     },
     clean() {
