@@ -37,11 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.quote {
-  color: #ccc;
-  position: absolute;
-}
 blockquote {
+  //position: relative;
   width: 700px;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
@@ -68,5 +65,11 @@ blockquote p {
   display: inline;
   color: #959699;
   font-size: 24px;
+}
+.quote {
+  color: #ccc;
+  position: relative;
+  top: -20px;
+  left: 200px;
 }
 </style>
