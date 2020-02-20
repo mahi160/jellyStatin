@@ -264,7 +264,7 @@ export default {
             Episodes: data.EpisodeCount,
             Songs: data.SongCount,
             albums: data.AlbumCount,
-            artists: data.ArtistCount,
+           //artists: data.ArtistCount,//API not working
             musicVideos: data.MusicVideoCount,
             Books: data.BookCount
           });
