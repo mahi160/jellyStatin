@@ -82,7 +82,6 @@
     <b-table class="mt-3" striped hover :dark="dark" small :items="serv">
       <template v-slot:table-caption>Recent Servers</template>
     </b-table>
-
   </div>
 </template>
 
@@ -106,10 +105,10 @@ export default {
     textVariant: String,
     dark: Boolean
   },
-  data(){
+  data() {
     return {
-      serv: JSON.parse(localStorage.serv),
-    }
+      serv: JSON.parse(localStorage.serv)
+    };
   },
   computed: {
     serverIPState() {
@@ -126,20 +125,24 @@ export default {
     submit() {
       this.$emit("submit");
     },
-    saveInput(){
-      if(this.serv.length>=5){
+    saveInput() {
+      if (this.serv.length >= 5) {
         this.serv.pop({
-          IP:this.serverIP, 
-          Port:this.serverPort, 
-          API:this.serverAPI,
+          IP: this.serverIP,
+          Port: this.serverPort,
+          API: this.serverAPI
         });
       }
+      let rowVariant;
+      this.errFetch ? rowVariant="success":rowVariant="danger";
       this.serv.unshift({
-        IP:this.serverIP, 
-        Port:this.serverPort, 
-        API:this.serverAPI});
-        localStorage.serv = JSON.stringify(this.serv)
-        console.log(localStorage.serv)
+        IP: this.serverIP,
+        Port: this.serverPort,
+        API: this.serverAPI,
+        _rowVariant: rowVariant
+      });
+      localStorage.serv = JSON.stringify(this.serv);
+      console.log(localStorage.serv);
     },
     allStats() {
       this.$emit("all-stat");
