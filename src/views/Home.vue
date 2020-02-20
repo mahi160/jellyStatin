@@ -153,7 +153,7 @@ export default {
       const url = {
         ItemCount: `${this.serverIP}:${this.serverPort}/Items/Counts?api_key=${this.serverAPI}`,
         Users: `${this.serverIP}:${this.serverPort}/Users?api_key=${this.serverAPI}`,
-        Plugins: `${this.serverIP}:${this.serverPort}/emby/Plugins?api_key=${this.serverAPI}`,
+        Plugins: `${this.serverIP}:${this.serverPort}/Plugins?api_key=${this.serverAPI}`,
         SystemInfo: `${this.serverIP}:${this.serverPort}/System/Info?api_key=${this.serverAPI}`,
         LastActivity: `${this.serverIP}:${this.serverPort}/user_usage_stats/user_activity?api_key=${this.serverAPI}`,
         Artists: `${this.serverIP}:${this.serverPort}/Artists?api_key=${this.serverAPI}`
