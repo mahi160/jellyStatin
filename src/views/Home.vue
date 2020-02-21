@@ -83,6 +83,34 @@
         tableVariant="info"
         :dark="isDark"
       ></main-section>
+
+      <!--Derails-->
+      <b-row v-show="!show">
+        <h1>Details</h1>
+        <!--Artists-->
+        <b-button
+        v-b-modal.artist
+        variant="warning"
+        >
+          Artist
+        </b-button>
+
+        <b-modal 
+          id="artist"
+          centered title="Artists">
+          <b-table
+            caption-top
+            sticky-header="400px"
+            name="artist" 
+            :headVariant="mode"
+            tableVariant="warning"
+            :dark="isDark" 
+            :items="musics" 
+            :fields="artField"
+          ></b-table>
+        </b-modal>
+      </b-row>
+      
     </b-container>
   </div>
 </template>
@@ -119,9 +147,18 @@ export default {
       movies: [],
       tvShows: [],
       musics: [],
+      artField: [
+        {
+          key: 'name',
+          sortable: true
+        },
+        {
+          key:'time',
+          sortable:true
+        }
+      ],
       others: [],
       plugins: [],
-      serv: []
     };
   },
   methods: {
@@ -136,18 +173,6 @@ export default {
       localStorage.IP = this.serverIP;
       localStorage.Port = this.serverPort;
       localStorage.API = this.serverAPI;
-
-      //Saving the file
-      /*
-      var fs = require("fs");
-      var json = JSON.stringify(this.serv);
-      fs.writeFile("serv.json", json, "utf8", err => {
-        if (err) {
-          return console.log(err);
-        }
-        console.log(this.serv);
-      });
-      */
     },
     allStats: function() {
       const url = {
@@ -270,6 +295,25 @@ export default {
           });
           this.counts = tempC;
         });
+      //Artist
+      fetch(url.Artists)
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          for(let i=0; i<data.TotalRecordCount;i++)
+          { 
+            let x = Math.floor((data.Items[i].RunTimeTicks/10**7)/60);
+            let y = ((data.Items[i].RunTimeTicks/10**7)/60 -x)*60;
+
+            this.musics.push({
+            name: data.Items[i].Name,
+            time: `${x} min ${y.toFixed(0)} sec`
+          })
+          }
+          
+        })
+
     }
   },
   computed: {
