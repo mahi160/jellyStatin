@@ -82,35 +82,7 @@
         :headVariant="mode"
         tableVariant="info"
         :dark="isDark"
-      ></main-section>
-
-      <!--Derails-->
-      <b-row v-show="!show">
-        <h1>Details</h1>
-        <!--Artists-->
-        <b-button
-        v-b-modal.artist
-        variant="warning"
-        >
-          Artist
-        </b-button>
-
-        <b-modal 
-          id="artist"
-          centered title="Artists">
-          <b-table
-            caption-top
-            sticky-header="400px"
-            name="artist" 
-            :headVariant="mode"
-            tableVariant="warning"
-            :dark="isDark" 
-            :items="musics" 
-            :fields="artField"
-          ></b-table>
-        </b-modal>
-      </b-row>
-      
+      ></main-section>   
     </b-container>
   </div>
 </template>
@@ -148,6 +120,7 @@ export default {
       tvShows: [],
       musics: [],
       artField: [
+        'index',
         {
           key: 'name',
           sortable: true
