@@ -82,7 +82,22 @@
         :headVariant="mode"
         tableVariant="info"
         :dark="isDark"
-      ></main-section>   
+      ></main-section>
+
+      <!--Details-->
+      <b-row v-show="!show">
+        <h1>Details</h1>
+      </b-row>
+
+      <!--Artist-->
+      <detail-section
+        v-show="!show"
+        :modalMode="mode"
+        :itemsArtist="artists"
+        :itemsAlbum="albums"
+        :isDark="isDark"
+        :fields="fields"
+      ></detail-section>
     </b-container>
   </div>
 </template>
@@ -91,13 +106,15 @@
 import InputSection from "@/components/InputSection.vue";
 import UserSection from "@/components/UserSection.vue";
 import MainSection from "@/components/MainSection.vue";
+import DetailSection from "@/components/DetailSection.vue";
 
 export default {
   name: "Home",
   components: {
     InputSection,
     UserSection,
-    MainSection
+    MainSection,
+    DetailSection
   },
   props: {
     isDark: Boolean
@@ -118,20 +135,21 @@ export default {
       counts: [],
       movies: [],
       tvShows: [],
-      musics: [],
-      artField: [
-        'index',
+      artists: [],
+      albums:[],
+      fields: [
+        "index",
         {
-          key: 'name',
+          key: "name",
           sortable: true
         },
         {
-          key:'time',
-          sortable:true
+          key: "time",
+          sortable: true
         }
       ],
       others: [],
-      plugins: [],
+      plugins: []
     };
   },
   methods: {
@@ -154,7 +172,8 @@ export default {
         Plugins: `${this.serverIP}:${this.serverPort}/emby/Plugins?api_key=${this.serverAPI}`,
         SystemInfo: `${this.serverIP}:${this.serverPort}/System/Info?api_key=${this.serverAPI}`,
         LastActivity: `${this.serverIP}:${this.serverPort}/user_usage_stats/user_activity?api_key=${this.serverAPI}`,
-        Artists: `${this.serverIP}:${this.serverPort}/Artists?api_key=${this.serverAPI}`
+        Artists: `${this.serverIP}:${this.serverPort}/Artists?api_key=${this.serverAPI}`,
+        AlbumArtists: `${this.serverIP}:${this.serverPort}/Artists/AlbumArtists?api_key=${this.serverAPI}`
       };
       //Fetching System Info//
       fetch(url.SystemInfo)
@@ -271,22 +290,38 @@ export default {
       //Artist
       fetch(url.Artists)
         .then(res => {
-          return res.json()
+          return res.json();
         })
         .then(data => {
-          for(let i=0; i<data.TotalRecordCount;i++)
-          { 
-            let x = Math.floor((data.Items[i].RunTimeTicks/10**7)/60);
-            let y = ((data.Items[i].RunTimeTicks/10**7)/60 -x)*60;
+          for (let i = 0; i < data.TotalRecordCount; i++) {
+            let x = Math.floor(data.Items[i].RunTimeTicks / 10 ** 7 / 60);
+            let y = (data.Items[i].RunTimeTicks / 10 ** 7 / 60 - x) * 60;
 
-            this.musics.push({
-            name: data.Items[i].Name,
-            time: `${x} min ${y.toFixed(0)} sec`
-          })
+            this.artists.push({
+              name: data.Items[i].Name,
+              time: `${x} min ${y.toFixed(0)} sec`,
+              count: data.TotalRecordCount
+            });
           }
-          
+        });
+      //Album Artist
+      fetch(url.AlbumArtists)
+        .then(res => {
+          return res.json();
         })
+        .then(data => {
+          for (let i = 0; i < data.TotalRecordCount; i++) {
+            let x = Math.floor(data.Items[i].RunTimeTicks / 10 ** 7 / 60);
+            let y = (data.Items[i].RunTimeTicks / 10 ** 7 / 60 - x) * 60;
 
+            this.albums.push({
+              name: data.Items[i].Name,
+              time: `${x} min ${y.toFixed(0)} sec`,
+              count: data.TotalRecordCount
+            });
+          }
+        });
+    
     }
   },
   computed: {
